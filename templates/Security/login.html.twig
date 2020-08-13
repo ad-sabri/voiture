@@ -1,0 +1,35 @@
+{% extends "layouts/base.html.twig" %}
+
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    <h1>Login</h1>   
+    <form novalidate method="POST">
+        <div>
+            <label for="email">Adresse mail</label><br>
+            <input 
+                type="email" 
+                id="email" 
+                name="email" 
+                value="{{ app.session.get(constant('App\\Controller\\SecurityController::LAST_EMAIL')) }}" 
+                required autofocus>
+        </div>
+        <div>
+            <label for="password">Mot de Passe</label><br>
+            <input type="password" id="password" name="password" required autofocus>
+        </div>
+
+        <div>
+            <label for="_remember_me">
+                <input type="checkbox" id="_remember_me" name="_remember_me">
+                Garder ma session active
+            </label>
+            
+        </div>
+
+        <input type="hidden" name="csrf_token" value="{{ csrf_token('login_form') }}">
+
+        <input type="submit" value="Se Connecter">
+    </form>
+{% endblock %}

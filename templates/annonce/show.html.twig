@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}l'annonce {{ annonce.id }} {% endblock %}
+
+{% block body %}
+    <h1>Titre de l'annonce: {{ annonce.title }}  </h1>
+    <p><strong>Prix:</strong> {{ annonce.price }} </p>
+    <p><strong>Description:</strong> {{ annonce.description }} </p>
+    <p><strong>Carburant:</strong> {{ annonce.carburant.carburant }} </p>
+{% endblock %}
